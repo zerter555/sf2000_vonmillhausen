@@ -303,6 +303,9 @@ function knownHash(hash) {
     case "08bd07ab3313e3f00b922538516a61b5846cde34c74ebc0020cd1a0b557dd54b":
       return "10.13";
 
+    case "ac22b49617e2b76a09e29efc3879e0258042179002eeee8ec0e6dc82a598a49e":
+      return "multicore0.10";
+
     default:
       return false;
   }

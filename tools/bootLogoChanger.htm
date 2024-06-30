@@ -61,6 +61,8 @@
             hashResult.then(function(dataHash) {
 
               // Check the hash against all the known good ones...
+              console.log("!!!");
+              console.log(knownHash(dataHash));
               switch (knownHash(dataHash)) {
 
                 // Mid-March BIOS...

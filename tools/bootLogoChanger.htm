@@ -61,8 +61,6 @@
             hashResult.then(function(dataHash) {
 
               // Check the hash against all the known good ones...
-              console.log("!!!");
-              console.log(knownHash(dataHash));
               switch (knownHash(dataHash)) {
 
                 // Mid-March BIOS...
@@ -90,9 +88,14 @@
                   break;
                 
                 // August 3rd BIOS...
+                case "multicore0.10":
                 case "08.03":
+                  var version = " Version 1.6 "
                   logoOffset = 0x9B3530;
-                  setMessage("info", "bisrvMessages", "INFO: Version 1.6 <code>bisrv.asd</code> detected.");
+                  if(knownHash(dataHash) == 'multicore0.10'){
+                    version = "Multicore Version 0.10"
+                  }
+                  setMessage("info", "bisrvMessages", "INFO:"+ version +"<code>bisrv.asd</code> detected.");
                   break;
 
                 // October 7th BIOS...
@@ -106,7 +109,7 @@
                   logoOffset = 0x9B3618;
                   setMessage("info", "bisrvMessages", "INFO: Version 1.71 <code>bisrv.asd</code> detected.");
                   break;
-
+                  
                 default:
                   // Huh... wasn't false so had bisrv.asd structure, but didn't
                   // return a known hash... a new BIOS version? Unknown anyway!
